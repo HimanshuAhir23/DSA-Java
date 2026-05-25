@@ -1,0 +1,27 @@
+package RecursionOnArrays;
+
+import java.util.Arrays;
+
+public class BinarySearch {
+    public static void main(String[] args) {
+        int [] arr={5,10,12,14,15,17,19,21,23};
+        Arrays.sort(arr);
+        binarySearch(arr,0, arr.length-1,23 );
+    }
+
+    public static void binarySearch(int [] arr, int l, int h,int key) {
+        int n= arr.length ;
+
+        if (l > h )return;
+        int mid=l+(h-l)/2;
+        if (arr[mid]==key){
+            System.out.println(mid);
+        } else if (arr[mid]>key) {
+            binarySearch(arr,l,mid-1,key);
+        }
+        else if(arr[mid]<key){
+            binarySearch(arr, mid+1, h, key);
+        }
+
+    }
+}
