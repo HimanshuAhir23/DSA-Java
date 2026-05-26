@@ -1,0 +1,30 @@
+package RecursionOnStrings;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+
+public class PowerSet {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+        AllSubsequence("", "abc", 0, list);
+        Collections.sort(list);
+        System.out.println(list);
+    }
+
+    public static void AllSubsequence(String ans, String s, int index, List<String> list) {
+
+        if (index == s.length()) {
+            if (ans.length() != 0) list.add(ans);
+            return;
+        }
+        char ch = s.charAt(index);
+        AllSubsequence(ans + ch, s, index + 1, list);
+        AllSubsequence(ans, s, index + 1, list);
+
+    }
+}
+
+
+
+
