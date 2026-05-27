@@ -1,0 +1,27 @@
+package RecursionOnArrays;
+import java.util.*;
+
+public class Subsets {
+    public static void main(String[] args) {
+        List<List<Integer>> ans=new ArrayList<>();
+        List<Integer> list= new ArrayList<>();
+        int [] arr={1,2,3};
+        AllSubsequence(arr,0,ans,list);
+        System.out.println(ans);
+    }
+    public static void AllSubsequence( int[] arr, int index,List<List<Integer>> ans,List<Integer> list) {
+
+        if (index == arr.length) {
+             ans.add(list);
+            return;
+        }
+        List<Integer> take = new ArrayList<>(list);
+        take.add(arr[index]);
+
+        AllSubsequence(arr, index + 1,  ans,take);
+
+        // not take
+        AllSubsequence(arr, index + 1, ans, new ArrayList<>(list));
+
+    }
+}
