@@ -1,0 +1,20 @@
+package Recursion;
+
+public class towerOfHanoi {
+    public static void main(String[] args) {
+        hanoi(4,'A','B','C');
+    }
+
+    public static void hanoi(int n,char a,char b,char c) {
+        // a ,b ,c are rodes
+      //  hanoi(int no of plates ,source ,helper,destination)
+        //1. shift the n-1 discs from a to b via c
+        //2. shift the nth disc to the c rod
+        //3. shit the n-1 discs to from b to c via a
+        if (n==0) return;
+        hanoi(n-1,a,c,b);
+        System.out.println(a+"->"+c);
+        hanoi(n-1,b,a,c);
+    }
+
+}
