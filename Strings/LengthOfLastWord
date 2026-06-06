@@ -1,0 +1,14 @@
+package Strings;
+
+public class LengthOfLastWord {
+    public static void main(String[] args) {
+        String str = "Hello world this is Java";
+        System.out.println(lengthOfLastWord(str));
+    }
+    public static int lengthOfLastWord(String s) {
+        String[] words = s.split(" ");
+
+        int len = words[words.length-1].length();
+        return len;
+    }
+}
