@@ -1,0 +1,35 @@
+package array;
+import java.util.*;
+public class AllMissingNoInArray {
+    public static void main(String[] args) {
+        int[] arr={1,1,1,1,1,1,1};
+
+        System.out.println(findDisappearedNumbers(arr));
+    }
+
+        public static List<Integer> findDisappearedNumbers(int[] arr) {
+            ArrayList<Integer> arrList=new ArrayList<>();
+            int n= arr.length;
+            int i=0;
+            while(i< arr.length){
+                int right=arr[i]-1;
+                if (arr[right]==arr[i]||arr[i]==i+1)i++;
+                else  {
+                    swap(arr, i, right );
+                }
+            }
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j] != j+1 ) arrList.add(j+1 );
+            }
+            return arrList;
+
+        }
+        public static void swap(int [] arr,int i ,int idx) {
+            int temp;
+            temp=arr[i];
+            arr[i]=arr[idx];
+            arr[idx]=temp;
+        }
+
+    }
+
