@@ -1,0 +1,36 @@
+package array;
+import java.util.*;
+public class ArrayDuplicates {
+    public static void main(String[] args) {
+       int[] arr={10 ,2, 8, 9, 8 ,5, 5, 3, 7, 3};
+        ArrayList<Integer> arrList=new ArrayList<>();
+        System.out.println(findDuplicates(arr));
+
+    }
+    public static ArrayList<Integer> findDuplicates(int[] arr) {
+        ArrayList<Integer> arrList=new ArrayList<>();
+        int n= arr.length;
+        int i=0;
+        while(i< arr.length){
+            int right=arr[i]-1;
+            if (arr[right]==arr[i]||arr[i]==i+1)i++;
+            else  {
+                swap(arr, i, right );
+            }
+        }
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] != j+1 ) arrList.add(arr[j] );
+        }
+        return arrList;
+
+    }
+    public static void swap(int [] arr,int i ,int idx) {
+        int temp;
+        temp=arr[i];
+        arr[i]=arr[idx];
+        arr[idx]=temp;
+    }
+}
+
+
+
