@@ -1,0 +1,36 @@
+package objectOrientedProgramming;
+import java.util.*;
+  class Car{
+    String brand;
+    String name;
+    float length;
+    float mileage;
+    int price;
+    void print(){
+        System.out.println(brand+" of "+name+" has "+length+" m len and gives "+mileage+" per/l and costs "+price+" in lakh");
+    }
+
+}
+public class lec1 {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+       Car c1=new Car();
+       Car c2=new Car();
+       Car c3=new Car();
+
+      input(c1,sc);
+      input(c2,sc);
+      input(c3,sc);
+      c1.print();
+      c2.print();
+      c3.print();
+
+    }
+    public static void input(Car c,Scanner sc){
+        c.brand=sc.next();
+        c.name= sc.next();
+        c.length = sc.nextFloat();
+        c.mileage= sc.nextFloat();
+        c.price= sc.nextInt();
+    }
+}
