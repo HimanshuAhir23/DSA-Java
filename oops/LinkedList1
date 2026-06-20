@@ -1,0 +1,74 @@
+package Linked_List;
+
+class Node{
+    int val;
+    Node next;
+    Node(int val){
+        this.val=val;
+    }
+}
+class  Linklist {
+    Node head;
+    Node tail;
+
+    //addatHead
+    void addAthead(int val){
+        Node temp=new Node(val);
+        if(head==null){
+            head =temp;
+            tail=temp;
+        }
+        else{
+            temp.next=head;
+            head = temp;
+        }
+    }
+    //addatTail
+    void addAtTail(int val){
+        Node temp=new Node(val);
+        if (head==null)head=tail=temp;
+        else {
+            tail.next=temp;
+            tail=temp;
+        }
+    }
+    //deleteAtHead
+    void deleteAtHead(){
+        if(head==null) {
+            System.out.println("list is empty");
+            return;
+        }
+        else {
+            head=head.next;
+            if(head==null)tail=null;
+
+        }
+    }
+   
+    //display
+    void display(){
+        Node temp=head;
+        while (temp !=null){
+            System.out.print(temp.val+" ");
+            temp=temp.next;
+        }
+        System.out.println();
+    }
+    //display at index
+
+}
+public class Linkedlist {
+    public static void main(String[] args) {
+        Linklist ll=new Linklist();
+        ll.display();
+        ll.addAthead(50);
+        ll.addAthead(400);
+        ll.addAthead(500);
+        ll.addAtTail(800);ll.display();
+        ll.deleteAtHead();
+        ll.display();
+
+    }
+
+
+}
