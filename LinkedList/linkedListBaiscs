@@ -1,0 +1,119 @@
+package Linked_List;
+
+  class Node{
+int val;
+Node next;
+Node(int val0{
+this.val=val;
+}
+}
+
+  class Llprac{
+      Node head;
+      Node tail;
+      int size;
+      void insertAtIdx(int val ,int idx){
+          if(size<idx)  {System.out.println("insertion not possible");return;}
+          Node temp=head;
+          for (int i=1;i<idx-1;i++){
+              temp=temp.next;
+          }
+          Node in=new Node(val);
+          in.next=temp.next;
+          temp.next=in;
+          size++;
+
+
+      }
+       int  search(int val){
+          if (head==null)return -1;
+          Node temp=head;
+          int idx=0;
+          while(temp!=null){
+              if (temp.val==val)return idx;
+              idx++;
+              temp=temp.next;
+          }
+          return -1;
+
+      }
+      void insertAtHead(int val){
+          Node temp=new Node(val);
+          if(head==null){
+              head=temp;
+              tail=temp;
+          }
+          else {
+              temp.next=head;
+              head=temp;
+          }
+          size++;
+      }
+      void insertAtTail(int val){
+
+          if (head==null)insertAtHead(val);
+          else {Node temp=new Node(val);
+              tail.next=temp;
+              tail=temp;
+              size++;
+          }
+      }
+      void deleteAtHead(){
+          if (head==null) System.out.println("LLlist is empty");
+          else {
+              head=head.next;
+              if(head==null)tail=null;
+              size--;
+          }
+      }
+      void display(){
+          Node temp=head;
+          while (temp!=null){
+              System.out.print(temp.val+" ");
+              temp=temp.next;
+          }
+          System.out.println();
+      }
+      int get(int idx){
+          Node temp=head;
+          for (int i = 1; i <idx ; i++) {
+              temp=temp.next;
+          }
+          return temp.val;
+      }
+      void deleteAtIndex(int index){
+          if (index < 0 || index >= size) {
+              System.out.println("Invalid index");
+              return;
+          }
+          if (index == 0) {
+              deleteAtHead();
+              return;
+          }
+          Node temp=head;
+          for (int i = 1; i <index-1 ; i++) {
+                 temp=temp.next;
+          }
+          temp.next=temp.next.next;
+          size--;
+      }
+
+  }
+
+public class PracticeLL {
+    public static void main(String[] args) {
+        Llprac n=new Llprac();
+        n.insertAtHead(10);
+        n.insertAtHead(20);
+        n.insertAtHead(50);
+        n.insertAtHead(60);
+        n.insertAtTail(100);
+        n.display();
+        n.deleteAtHead();
+        n.display();
+        System.out.println( n.search(100));
+        System.out.println(n.size);
+        n.insertAtIdx(60,6);
+
+    }
+}
