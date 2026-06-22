@@ -1,0 +1,47 @@
+package Linked_List;
+class  Solution {
+      Node head;
+      Node tail;
+      int size;
+    void insertAtHead(int val){
+        Node temp=new Node(val);
+        if(head==null){
+            head=temp;
+            tail=temp;
+        }
+        else {
+            temp.next=head;
+            head=temp;
+        }
+        size++;
+    }
+       public int getKthFromLast(Node head, int k) {
+           Node s=head;
+           Node t=head;
+           int len=0;
+           while (s!=null){
+               len++;
+               s=s.next;
+           }
+           if(len<k) return -1;
+           t=head;
+           for (int i = 1; i <=len-k ; i++) {
+               t=t.next;
+           }
+           return t.val;
+
+      }
+}
+public class KthFromEnd {
+    public static void main(String[] args) {
+        Solution n=new Solution();
+        n.insertAtHead(80);
+        n.insertAtHead(70);
+        n.insertAtHead(60);
+        n.insertAtHead(50);
+        n.insertAtHead(40);
+        n.insertAtHead(30);
+        n.insertAtHead(20);
+        n.insertAtHead(10);
+    }
+}
