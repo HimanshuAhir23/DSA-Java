@@ -1,0 +1,57 @@
+package Linked_List;
+
+class Intersection {
+
+    public Node getIntersectionNode(Node headA, Node headB) {
+
+        Node first = headA;
+        Node second = headB;
+
+        int len1 = 0;
+        int len2 = 0;
+
+        // Calculate lengths
+        while (first != null) {
+            len1++;
+            first = first.next;
+        }
+
+        while (second != null) {
+            len2++;
+            second = second.next;
+        }
+
+        // Reset pointers
+        first = headA;
+        second = headB;
+
+        // Move longer list ahead
+        if (len1 > len2) {
+            int diff = len1 - len2;
+
+            for (int i = 0; i < diff; i++) {
+                first = first.next;
+            }
+        } else {
+            int diff = len2 - len1;
+
+            for (int i = 0; i < diff; i++) {
+                second = second.next;
+            }
+        }
+
+        // Find intersection
+        while (first != second) {
+            first = first.next;
+            second = second.next;
+        }
+
+        return first;
+    }
+}
+
+public class IntersectionOfTwoLinkedlist {
+    public static void main(String[] args) {
+
+    }
+}
