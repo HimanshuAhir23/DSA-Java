@@ -1,0 +1,21 @@
+package Linked_List;
+class Sol82{
+    public Node deleteDuplicates(Node head) {
+       Node dummy=new Node(-1);
+       Node i=head;
+
+       while (i!=null){
+           if (i.val== i.next.val){
+               i=i.next.next;
+
+           }
+           else {
+               dummy.next=i;
+               i=i.next;
+           }
+    }
+       return dummy.next;
+}
+}
+public class DeleteAllDuplicateNodeII {
+}
