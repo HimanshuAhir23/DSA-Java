@@ -1,0 +1,28 @@
+package Linked_List;
+
+
+
+class Sol142 {
+    public Node cycleStart(Node head) {
+          Node s=head;
+          Node f=head;
+          while (f!=null&&f.next!=null&&s.next!=null){
+            f=f.next.next;
+            s=s.next;
+            if(s==f){
+                Node temp=head;
+                while (s!=temp){
+                    s=s.next;
+                    temp=temp;
+                }
+                return temp;
+            }
+        }
+          return null;
+    }
+}
+public class FirstNodeInLoop {
+    public static void main(String[] args) {
+
+    }
+}
