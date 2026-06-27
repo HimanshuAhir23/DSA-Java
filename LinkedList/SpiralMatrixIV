@@ -1,0 +1,61 @@
+ int tele=m*n;
+      // List<Integer> ans=new ArrayList<>();
+        int[] arr=new int[tele];
+       Node temp=head;
+       int lllen=0;
+       while (temp!=null){
+           lllen++;
+           temp = temp.next;
+       }
+       temp=head;
+       int i=0;
+       while (i<tele){
+           if (temp!=null){
+               arr[i]=temp.val;
+               temp=temp.next;
+           }
+          else {
+              arr[i]=-1;
+           }
+          i++;
+       }
+        int[][] matrix = new int[m][n];
+
+        int top = 0;
+        int bottom = m - 1;
+        int left = 0;
+        int right = n - 1;
+        int index = 0;
+
+        while (top <= bottom && left <= right) {
+
+            // Left -> Right
+            for (int j = left; j <= right; j++) {
+                matrix[top][j] = arr[index++];
+            }
+            top++;
+
+            // Top -> Bottom
+            for (int i = top; i <= bottom; i++) {
+                matrix[i][right] = arr[index++];
+            }
+            right--;
+
+            // Right -> Left
+            if (top <= bottom) {
+                for (int j = right; j >= left; j--) {
+                    matrix[bottom][j] = arr[index++];
+                }
+                bottom--;
+            }
+
+            // Bottom -> Top
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    matrix[i][left] = arr[index++];
+                }
+                left++;
+            }
+        }
+
+        return matrix;
