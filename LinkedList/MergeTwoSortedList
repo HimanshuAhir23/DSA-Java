@@ -1,0 +1,55 @@
+package Linked_List;
+class Sol21{
+    Node head1;
+    Node head2;
+    static void pr(Node head){
+        Node t=head;
+        while (t!=null){
+            System.out.print(t.val+" ");
+            t=t.next;
+        }
+        System.out.println();
+    }
+    public Node mergeTwoLists(Node list1, Node list2) {
+         Node i=list1;
+         Node j=list2;
+         Node dummy=new Node(-1);
+         Node temp=dummy;
+         while (i != null && j != null){
+             if (i.val<j.val){
+                 temp.next = i;
+                 i=i.next;
+             }
+             else {
+                 temp.next = j;
+                 j=j.next;
+             }
+             temp = temp.next;
+         }
+        if (i != null)
+            temp.next = i;
+
+        if (j != null)
+            temp.next = j;
+
+        return dummy.next;
+
+    }
+}
+public class MergeTwoSortedList {
+    public static void main(String[] args) {
+        Node l1=new Node(1);
+        l1.next=new Node(2);
+        l1.next.next=new Node(4);
+
+        Node l2=new Node(1);
+        l2.next=new Node(3);
+        l2.next.next=new Node(4);
+         Sol21 o=new Sol21();
+         o.pr(l1);
+         o.pr(l2);
+         Node ans =o.mergeTwoLists(l1,l2);
+         o.pr(ans);
+
+    }
+}
