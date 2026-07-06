@@ -1,0 +1,49 @@
+lass Solution {
+    public void reorderList(ListNode head) {
+    ListNode dummy=new ListNode(-1);
+    ListNode temp=dummy;
+     ListNode s=head;
+     ListNode f=head;
+     while(f.next!=null&&f.next.next!=null){
+       
+        s=s.next;
+        f=f.next.next;
+
+     }
+     ListNode d=reverse(s.next);
+     s.next=null;
+     int count=1;
+     while(d!=null&&head!=null){
+             if(count%2!=0){
+                temp.next=head;
+                head=head.next;
+             }  
+             else{
+                temp.next=d;
+                d=d.next;
+             }
+             temp=temp.next;
+             count++;
+     }
+     if(d!=null){
+        temp.next=d;
+     }
+     
+     if(head!=null){
+        temp.next=head;
+     }
+     
+     head=dummy.next;
+    }
+    public ListNode reverse(ListNode n){
+        ListNode c=n;
+        ListNode p=null;
+        while(c!=null){
+            ListNode f=c.next;
+            c.next=p;
+            p=c;
+            c=f;
+        }
+        return p;
+    }
+}
