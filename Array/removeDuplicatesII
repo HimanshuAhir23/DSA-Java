@@ -1,0 +1,30 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+         if (nums.length <= 2) {
+            return nums.length;
+        }
+        ArrayList<Integer> ans = new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            ans.add(nums[i]);
+
+        }
+        
+       int i = 0;
+
+    while(i + 2 < ans.size()){
+       if(ans.get(i).equals(ans.get(i+1)) &&ans.get(i).equals(ans.get(i+2)))
+       {
+        ans.remove(i+2);
+         }
+        else{
+           i++;
+                        } 
+    }               
+         
+    for (int j = 0; j < ans.size(); j++) {
+            nums[j] = ans.get(j);
+        }
+            return ans.size();
+
+    }
+}
