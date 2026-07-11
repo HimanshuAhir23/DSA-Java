@@ -1,0 +1,58 @@
+package Stack;
+
+import java.util.Stack;
+
+public class basicOfStackUsingSL {
+    public static void main(String[] args) {
+        //peak , add , remove at an index
+        Stack <Integer> st=new Stack<>();
+        Stack <Integer> st2=new Stack<>();
+        st.push(10);
+        st.push(20);
+        st.push(-1);
+        st.push(40);
+        st.push(50);
+        System.out.println(peakFun(st,st2,2));
+
+        System.out.println(removeElement(st,st2,2));
+        Stack <Integer> ans =add(st,st2,2,30);
+        System.out.println(st   );
+
+    }
+
+    public static int peakFun(Stack<Integer> s, Stack<Integer>  s2, int idx) {
+        while (s.size()-1>idx){
+            s2.push(s.pop());
+           ;
+        }
+        int ans =s.peek();
+        while (!s2.isEmpty()){
+            s.push(s2.pop());
+        }
+        return ans;
+    }
+
+    public static Stack<Integer> add(Stack<Integer> s, Stack<Integer> s2, int idx,int val ) {
+          while (s.size()>idx){
+              s2.push(s.pop());
+
+          }
+          s.push(val);
+          while (!s2.isEmpty()){
+              s.push(s2.pop());
+          }
+        return s;
+    }
+
+    public static Stack<Integer> removeElement (Stack<Integer> s, Stack<Integer>  s2, int idx) {
+        while (s.size()-1>idx){
+            s2.push(s.pop());
+
+        }
+        s.pop();
+        while (!s2.isEmpty()){
+            s.push(s2.pop());
+        }
+        return s;
+    }
+}
