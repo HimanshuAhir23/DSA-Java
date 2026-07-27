@@ -1,0 +1,30 @@
+class Solution {
+    public int maxProduct(int[] arr) {
+        if(arr.length==2){
+        int ans=(arr[0]-1)*(arr[1]-1);     
+        return ans; 
+        } 
+        int j=0;
+        
+        int max1=Integer.MIN_VALUE;
+        int max2=Integer.MIN_VALUE;
+        int idx=-1;
+        while(j<arr.length){
+        if(arr[j]>=max2){
+             max2=arr[j];
+             idx=j;
+        }
+        j++;
+        }
+        int i=0;
+      
+        while(i<arr.length){
+            if(arr[i]>=max1 && i!=idx){
+                max1=arr[i];
+            }
+            i++;
+        }
+
+        return (max1-1)*(max2-1);
+    }
+}
