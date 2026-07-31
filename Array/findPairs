@@ -1,0 +1,33 @@
+class Solution {
+    public int findPairs(int[] nums, int k) {
+        if (k < 0) return 0;
+
+        if (k == 0) {
+            HashSet<Integer> seen = new HashSet<>();
+            HashSet<Integer> duplicate = new HashSet<>();
+
+            for (int num : nums) {
+                if (!seen.add(num)) {
+                    duplicate.add(num);
+                }
+            }
+
+            return duplicate.size();
+        }
+
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        HashSet<Integer> ans = new HashSet<>();
+
+        for (int num : set) {
+            if (set.contains(num + k)) {
+                ans.add(num);
+            }
+        }
+
+        return ans.size();
+    }
+}
