@@ -1,0 +1,56 @@
+
+package Queue;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class operation_at_index {
+    public static void main(String[] args) {
+        Queue<Integer> q=new LinkedList<>();
+        q.add(10);
+        q.add(20);
+        q.add(30);
+        q.add(40);
+        System.out.println(q);
+        peek_at(q,2);
+        
+    }
+    public  static  void add_at(Queue<Integer> q,int n,int idx){
+        int s=q.size();
+        for (int i = 0; i <s+1 ; i++) {
+            if (i!=idx){
+                q.add(q.remove());
+            }
+            else {
+                q.add(n);
+            }
+
+        }
+    }
+    public  static  void remove_at(Queue<Integer> q,int idx){
+        int s=q.size();
+        for (int i = 0; i <s ; i++) {
+            if (i!=idx){
+                q.add(q.remove());
+            }
+            else {
+
+                q.remove(q.peek());
+            }
+
+        }
+    }
+    public  static  void peek_at(Queue<Integer> q,int idx){
+        int s=q.size();
+        for (int i = 0; i <s+1 ; i++) {
+            if (i!=idx){
+                q.add(q.remove());
+            }
+            else {
+                System.out.println(q.peek());
+
+            }
+
+        }
+    }
+}
