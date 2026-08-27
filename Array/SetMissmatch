@@ -1,0 +1,40 @@
+package array;
+
+public class SetMismatch {
+    public static void main(String[] args) {
+        int [] arr={1,2,2,4};
+        int[] ans=findErrorNums(arr);
+        for(int ele:ans){
+            System.out.print(ele+" ");
+        }
+    }
+    public static int[] findErrorNums(int[] arr) {
+        int [] ans=new int[2];
+        int n= arr.length;
+        int i=0;
+        while(i< arr.length){
+            int right=arr[i]-1;
+            if (arr[right]==arr[i]||arr[i]==i+1)i++;
+            else  {
+                swap(arr, i, right );
+            }
+        }
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] != j+1 ) {
+                ans[0]=arr[j];//duplicate
+                ans[1]=j+1;//missing
+            }
+        }
+        return ans;
+
+    }
+    public static void swap(int [] arr,int i ,int idx) {
+        int temp;
+        temp=arr[i];
+        arr[i]=arr[idx];
+        arr[idx]=temp;
+    }
+
+}
+
+
