@@ -1,0 +1,41 @@
+package HashMap_HashSet;
+import java.util.*;
+public class MostFreqChar {
+    public static char getMaxOccuringChar(String s) {
+        // testsample
+        HashMap <Character,Integer> map=new HashMap<>();
+
+        int n =s.length();
+        char ch='z';
+        int count=0;
+        for(int i=0;i<n;i++){
+            ch =s.charAt(i);
+            if (map.containsKey(ch)){
+                int freq=map.get(ch);
+                map.put(ch,freq+1);
+            }
+            else {
+                map.put(ch,1);
+            }
+        }
+        int maxfreq=0;
+        for (char key : map.keySet()){
+            int freq=map.get(key);
+              if(freq>=maxfreq)maxfreq=freq;
+        }
+        char ans=s.charAt(0);
+        for (char key :map.keySet()){
+            if(map.get(key)==maxfreq && key<=ans){
+                ans=key;
+            }
+        }
+       return ans;
+    }
+    public static void main(String[] args) {
+
+        char ans=getMaxOccuringChar("testsample");
+        System.out.println(ans);
+    }
+
+
+}
