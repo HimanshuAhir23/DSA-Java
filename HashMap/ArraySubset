@@ -1,0 +1,48 @@
+package HashMap_HashSet;
+
+import java.util.HashMap;
+import java.util.HashSet;
+
+public class ArraySubset {
+    public static boolean isSubset(int[] a, int[] b) {
+
+        HashMap<Integer,Integer> m1=new HashMap<>();
+        HashMap<Integer,Integer> m2=new HashMap<>();
+
+        for (int ele :a){
+            if (m1.containsKey(ele)){
+                int fre=m1.get(ele);
+                m1.put(ele,fre+1);
+            }
+            else{
+                m1.put(ele,1);
+            }
+        }
+        for (int ele :b){
+            if (m2.containsKey(ele)){
+                int fre=m2.get(ele);
+                m2.put(ele,fre+1);
+            }
+            else{
+                m2.put(ele,1);
+            }
+        }
+        int n=b.length;
+        int k=0;
+        for (int key:m2.keySet()){
+            if (!m1.containsKey(key)) {
+                return false;
+            }
+            int f1=m1.get(key);
+            int f2=m2.get(key);
+            if(f1<f2) return false;
+
+
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+
+    }
+
+}
