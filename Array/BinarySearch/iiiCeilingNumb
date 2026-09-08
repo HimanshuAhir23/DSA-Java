@@ -1,0 +1,44 @@
+package BinarySearch;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class iiiCeilingNumb {
+        public static void main(String[] args) {
+            Scanner input=new Scanner(System.in);
+            int [] arr=new int[7];
+            for (int i = 0; i < arr.length; i++) {
+                arr[i]=input.nextInt();
+            }
+            System.out.println(Arrays.toString(arr));
+            System.out.println("enter target value : ");
+            int tarG=input.nextInt();
+            int ans =binarysearch(arr,tarG);
+            System.out.println(ans);
+        }
+        //to return the index of the number greater or equal to the target
+        static int binarysearch(int[] ar, int target){
+            System.out.println("Binary Search Called");
+       //what if the target is greatest to last element of the array
+            if(target>ar[ar.length-1]){
+                return -1;
+            }
+            int start=0;
+            int end=ar.length-1;
+
+            while(start<=end){
+                int mid =start+(end-start)/2;
+                if(target<ar[mid]){
+                    end=mid-1;
+                } else if (target>ar[mid]) {
+                    start=mid+1;
+                }
+                else {
+                    return mid;
+                }
+            }
+            return start;
+        }
+    }
+
+
