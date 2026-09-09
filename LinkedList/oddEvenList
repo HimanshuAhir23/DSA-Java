@@ -1,0 +1,33 @@
+package Linked_List;
+
+
+class Sol328{
+    public Node oddEvenList(Node head) {
+          Node dummy1=new Node(-1);
+          Node dummy2=new Node(-1);
+          Node t1=dummy1;
+          Node t2=dummy2;
+          Node temp=head;
+          int count=1;
+          while (temp!=null){
+              if (count%2!=0){
+                  t1.next=temp;
+                  t1=t1.next;
+              }
+              else {
+                  t2.next=temp;
+                  t2=t2.next;
+              }
+              count++;
+              temp=temp.next;
+          }
+          t1.next=dummy2.next;
+          t2.next=null;
+          return dummy1.next;
+    }
+}
+public class Odd_evenList {
+    public static void main(String[] args) {
+
+    }
+}
