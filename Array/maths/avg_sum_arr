@@ -1,0 +1,26 @@
+import java.util.*;
+
+
+public class avg_sum_arr {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enetr the size of array : ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("enetr the elements of array : ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        sum_avg(arr);
+    }
+
+    public static void sum_avg(int[] arr) {
+        int sum=0;
+        for (int i = 0; i <arr.length ; i++) {
+                sum+=arr[i];
+        }
+        double avg=sum/ arr.length;
+        System.out.println("the sum is " +sum+" ,avg is : "+avg);
+    }
+}
+
