@@ -1,0 +1,21 @@
+import  java.util.Scanner;
+public class postOrNeg {
+    public static void main(String[] args) {
+         Scanner sc =new Scanner(System.in);
+        System.out.println("eneter a num:");
+        int n =sc.nextInt();
+        sign(n);
+
+    }
+    public  static  void sign(int n){
+        if (n<0){
+            System.out.println("negative");
+        } else if (n==0) {
+            System.out.println("zero");
+        }
+        else {
+            System.out.println("postive");
+        }
+
+    }
+}
