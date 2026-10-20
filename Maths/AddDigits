@@ -1,0 +1,15 @@
+class Solution {
+    public int addDigits(int num) {
+        
+        if(String.valueOf(num).length()==1) return num;
+        int n=num;
+       
+        while(String.valueOf(n).length()>1){
+            int digit=n%10;
+            int left=n/10;
+            n=digit+left;
+            
+        }
+        return n;
+    }
+}
